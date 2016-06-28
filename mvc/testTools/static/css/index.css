@@ -1,0 +1,37 @@
+.abossModules{
+    margin:10px;
+    border-style:solid;
+    border-width: 1px;
+}
+
+.abossModules div{
+    /*width: 200px;*/
+    height: 200px;
+    /*float: left;*/
+    border-style: solid;
+    border-width: 1px;
+    margin:10px;
+    padding: 5px ;
+    text-align:center;
+    line-height: 200px;
+    font-size: 30px;
+}
+
+.abossModules div span{
+    color: red;
+}
+
+.abossModules .oss{
+    background: red;
+    background: url("../img/oss.png") no-repeat center;
+}
+
+.abossModules .other{
+    background: blue;
+    background: url("../img/other.png") no-repeat center;
+}
+
+.hover_class:hover{
+    text-decoration: underline;
+    color: #FF0000;
+}

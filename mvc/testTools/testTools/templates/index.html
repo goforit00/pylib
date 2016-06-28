@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+
+{% block head %}<link rel="stylesheet" type="text/css" href="../../static/css/index.css">{% endblock %}
+
+
+{% block title %}abossTools首页{% endblock %}
+{% block content %}{% include 'ad.html' %}
+    <span>aboss 模块选择</span>
+    <div class="row">
+        <div class="abossModules">
+            <div class="col-md-3 oss cursor_hand hover_class" onclick=goto("ossTools/index/")><span>oss</span></div>
+            <div class="col-md-3 other cursor_hand hover_class"><span>敬请期待</span></div>
+        </div>
+    </div>
+    <br>
+    <button type="button" class="btn btn-default">默认按钮</button>
+<button type="button" class="btn btn-primary">原始按钮</button>
+<button type="button" class="btn btn-success">成功按钮</button>
+{% endblock %}
