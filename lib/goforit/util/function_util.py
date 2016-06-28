@@ -1,7 +1,6 @@
 __author__ = 'junqingfjq'
 
 import os
-import sys
 import re
 import hashlib
 import zipfile
@@ -43,12 +42,7 @@ def get_dict_from_file(filename):
 	return dict_value
 
 def get_value_from_file(key,file_name):
-	'''
-	从文件中得到key的value值
-	:param key: str
-	:param file_name: 文件名称
-	:return: str  如果没有找到，返回""
-	'''
+
 	value = ""
 	with open(file_name) as f:
 		for line in f:
@@ -88,12 +82,7 @@ def replace_value_from_file(src_key,des_value,file_name):
 
 
 def save_var_to_file(filename,argv_str):
-	"""
-	存储值到file中，不建议使用
-	:param filename:
-	:param argv_str:
-	:return:
-	"""
+
 	argvs = argv_str.split(" ")
 	len_of_argv = len(argvs)
 
@@ -123,12 +112,7 @@ def save_var_to_file(filename,argv_str):
 				f.close()
 
 def kvstr_convert_dict(kvstr,sep=" "):
-	"""
-	把key=value字符串 转换为dict
-	:param kvstr: key=value字符串，例如"key1=value1 key2=value2"
-	:param sep: 多个kv之间的分隔符，default=" "
-	:return: dict
-	"""
+
 	result_dict=dict()
 	if kvstr == "":
 		return result_dict
@@ -154,12 +138,7 @@ def getObjectByName(module_name,class_name):
 
 
 def copy_files(source_dir,  target_dir):
-	"""
-	把一个文件夹下的文件拷贝到另一个文件夹下
-	:param source_dir: 源文件夹 路径
-	:param target_dir: 目标文件路径
-	:return: None
-	"""
+
 	if source_dir.find(".svn") > 0:
 		return
 
@@ -175,12 +154,7 @@ def copy_files(source_dir,  target_dir):
 			copy_files(sourceFile, targetFile)
 
 def copy_file(source_file,target_file):
-	"""
-	拷贝单文件
-	:param source_file: 源文件名
-	:param target_file: 目标文件名
-	:return: None
-	"""
+
 	if not os.path.exists(source_file):
 		print("source file: %s not exist" % source_file )
 		return False
@@ -195,13 +169,7 @@ def copy_file(source_file,target_file):
 
 
 def zip_files(source_file_path,target_file_name):
-	"""
-	使用zip压缩文件
-	把一个文件夹下的文件压缩成目标文件
-	:param source_file_path: 源文件夹路径
-	:param target_file_name: 目标文件名
-	:return: None
-	"""
+
 	dir = source_file_path
 	f=zipfile.ZipFile(target_file_name,'w',zipfile.ZIP_DEFLATED)
 
@@ -217,11 +185,7 @@ def zip_files(source_file_path,target_file_name):
 	f.close()
 
 def remove_files(target_dir):
-	"""
-	删除文件夹下所有文件
-	:param target_dir: 目标文件夹路径
-	:return: None
-	"""
+
 	if not os.path.exists(target_dir):
 		return
 	for file in os.listdir(target_dir):
@@ -246,12 +210,7 @@ def tarx_file(filename,tarx_path):
 
 #tar -cvf
 def tar_files(source_file_path,target_file_name):
-	"""
-	使用tar 压缩文件
-	:param source_file_path: 源文件夹路径
-	:param target_file_name: 目标文件名
-	:return:
-	"""
+
 	if not os.path.exists(source_file_path):
 		return False
 
@@ -274,11 +233,7 @@ def tar_files(source_file_path,target_file_name):
 	f.close()
 
 def str_strip(str):
-	"""
-	不建议使用
-	:param str:
-	:return:
-	"""
+
 	result = str.strip()
 	result = result.lstrip(" ")
 	result = result.rstrip(" ")
@@ -286,15 +241,10 @@ def str_strip(str):
 	return result
 
 def change_user(user_name):
-	"""
-	改变当前执行的用户
-	:param user_name:转换后的用户名
-	:return:None
-	"""
+
 	import pwd
 	user=pwd.getpwnam(user_name)
-	#print("gid:"+str(user.pw_gid))
-	#print("uid:"+str(user.pw_uid))
+
 
 	os.setgid(user.pw_gid)
 	os.setuid(user.pw_uid)
@@ -302,11 +252,7 @@ def change_user(user_name):
 	os.environ["SHELL"]=user.pw_shell
 
 def remove_more_space(str_obj):
-	"""
-	删除字符串str_obj中多余的空格和换行符，比如：“aa   bb”->"aa bb"
-	:param str_obj:
-	:return:str
-	"""
+
 	str_word=str(str_obj)
 	if str_word==" ":
 		return " "
@@ -321,13 +267,7 @@ def remove_more_space(str_obj):
 	return ret
 
 def replace_str_by_pattern(source_str,matched_pattern,replace_str):
-	"""
-	替换source_str中符合matched_pattern的字符串为replace_str
-	:param source_str: 源字符串
-	:param matched_pattern: 匹配模式
-	:param replace_str: 替换后的字符串
-	:return: 返回替换完毕的字符串
-	"""
+
 	result=""
 	match_str=str(source_str)
 	while True:
