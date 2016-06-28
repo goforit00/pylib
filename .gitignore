@@ -7,3 +7,8 @@ target/
 .DS_Store
 .log
 *.pyc
+lib/build/
+lib/dist
+lib/goforit.egg-info
+
+
